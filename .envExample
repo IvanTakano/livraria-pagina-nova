@@ -1,0 +1,8 @@
+DB_USER=root
+DB_PASSWORD=cawetr11
+DB_NAME=livraria_pagina_nova
+DB_HOST=localhost
+DB_PORT=3306
+DB_DIALECT=mysql
+
+NODE_ENV=development

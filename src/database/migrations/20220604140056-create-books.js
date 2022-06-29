@@ -23,7 +23,7 @@ module.exports = {
 			},
 			stock: {
 				type: Sequelize.INTEGER
-			},
+			},			
 			createdAt: {
 				allowNull: true,
 				type: Sequelize.DATE

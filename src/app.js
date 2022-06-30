@@ -14,5 +14,6 @@ db.hasConnection();
 
 app.use(routes);
 
-app.listen(3000, () => console.log('Servidor no ar na porta 3000'));
+const port = process.env.PORT || 3000
+app.listen(port, () => console.log('Servidor no ar na porta 3000'));
 

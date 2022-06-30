@@ -1,24 +1,29 @@
-const { Books } = require("../database/models");
+
+
+const { Books } = require('../database/models');
 const cloudinary = require('../config/cloudinary');
-const imageFolder = 'images/';
-const fs = require('fs')
+const fs = require("fs");
+
+const imageFolder = 'images/'
 
 const BookController = {
     async create(req, res) {
-        const file = req.files[0];
-        const uploadPath = await cloudinary.uploads(file.path, 'books')
-        fs.unlinkSync(file.path);
-        //console.log(uploadPath.imageUrl);
 
+        const file = req.files[0];
+        //console.log(file);
+
+        const uploadPath = await cloudinary.uploads(file.path,'Books')
+        fs.unlinkSync(file.path)
+        
         const newBook = await Books.create({
             ...req.body,
-            // Forma de upload na aplicacao
-            //image: imageFolder + file.filename
-            image: uploadPath.imageUrl
+           //forma de upload na aplicação 
+           // image: imageFolder + file.filename
+           image: uploadPath.imageUrl
         })
-        
+
         return res.status(201).json({dadosFinais: newBook})
     }
 }
 
-module.exports = BookController;
+module.exports = BookController
